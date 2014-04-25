@@ -1,6 +1,6 @@
 # gomako.co.uk
 
-Source for my website. Built using [mnml](http://mrmrs.cc "mrmrs") excellent gulp-based HTML5 boilerplate called [MNML](http://mn-ml.cc/)
+Source for my website. Built using [mrmrs'](http://mrmrs.cc "mrmrs") excellent gulp-based HTML5 boilerplate called [MNML](http://mn-ml.cc/)
 
 ---
 
