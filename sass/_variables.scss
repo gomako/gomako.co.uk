@@ -17,7 +17,7 @@ $white:       #fff;
    ========================================================================== */
 
 /**
- * 12 & 16 as roots then powers of two.
+ * Golden Ratio
  */
 
 $font-size-1:2.618em;
@@ -27,6 +27,9 @@ $font-size-4:1.127em;
 $font-size-5:1em;
 $font-size-6:0.618em;
 
+$padding-lg: $font-size-1;
+$padding-md: $font-size-2;
+$padding-sm: $font-size-3;
 
 /* Medium */
 $breakpoint-1-max-width:48em;

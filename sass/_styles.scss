@@ -6,24 +6,40 @@
 	display: table-cell;
 	vertical-align: middle;
 }
-
+a {
+	text-decoration: none;
+	color: #4a4a4a;
+	transition: color ease 0.3s;
+}
+a:hover {
+	color: #39CCCC;
+}
+header {
+	padding-top: $padding-lg;
+	height: 60%;
+	background: $near-black url(../img/grass.jpg);
+	color: #fff;
+	background-size: cover;
+	text-align: center;
+	display: table;
+	width: 100%;
+}
 section,
 footer {
 	max-width:100%;
 	max-width: $block-width;
 	margin: 0 auto;
 }
-
 section.main {
 	background: #fff;
-	padding: 2.618em;
-	margin-top: -2.618em;
+	padding: $padding-lg;
+	margin-top: -$padding-lg;
 }
 section.main p {
 	margin-top:0;
 }
 .elsewhere {
-	padding: 1.618em 0;
+	padding: $padding-sm 0;
 	border-top: 1px solid #aaa;
 	border-bottom: 1px solid #aaa;
 }
@@ -33,24 +49,8 @@ section.main p {
 	vertical-align:top;
 	text-align: center;
 }
-header {
-	height: 60%;
-	background: $near-black url(../img/grass.jpg);
-	color: #fff;
-	background-size: cover;
-	text-align: center;
-	display: table;
-	width: 100%;
-}
 footer {
-	padding: 0 2.618em;
-	margin-top: 2.618em;
-}
-a {
-	text-decoration: none;
-	color: #4a4a4a;
-	transition: color ease 0.3s;
-}
-a:hover {
-	color: #39CCCC;
+	padding: 0 $padding-lg;
+	margin-top: $padding-lg;
+	margin-bottom: $padding-lg;
 }
