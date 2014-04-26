@@ -4,37 +4,22 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
     watch = require('gulp-watch'),
+    rename = require('gulp-rename'),
     lr    = require('tiny-lr'),
     server = lr(),
     livereload = require('gulp-livereload'),
     prefix = require('gulp-autoprefixer'),
     minifyCSS = require('gulp-minify-css'),
-    sass = require('gulp-ruby-sass'),
-    csslint = require('gulp-csslint');
+    sass = require('gulp-ruby-sass')
 
 
-// Task to minify all css files in the css directory
+// Task to minify css file in the css directory
 
 gulp.task('minify-css', function(){
-  gulp.src('./css/*.css')
+  gulp.src('./css/i.css')
     .pipe(minifyCSS({keepSpecialComments: 0}))
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./css/'));
-});
-
-
-// Use csslint without box-sizing or compatible vendor prefixes (these
-// don't seem to be kept up to date on what to yell about)
-
-gulp.task('csslint', function(){
-  gulp.src('./css/*.css')
-    .pipe(csslint({
-          'compatible-vendor-prefixes': false,
-          'box-sizing': false,
-          'important': false,
-          'known-properties': false
-        }))
-    .pipe(csslint.reporter());
-
 });
 
 
@@ -68,11 +53,10 @@ gulp.task('reload-html', function() {
 */
 
 gulp.task('default', function(){
-  gulp.run('pre-process', 'csslint');
+  gulp.run('pre-process', 'minify-css');
   server.listen(35729, function (err) {
     gulp.watch(['*.html', './sass/*.scss'], function(event) {
-      gulp.run('reload-html','pre-process', 'csslint');
+      gulp.run('reload-html','pre-process', 'minify-css');
     });
   });
 });
-
