@@ -181,7 +181,7 @@ a { text-decoration: none; color: #4a4a4a; -webkit-transition: color ease 0.3s; 
 
 a:hover { color: #39CCCC; }
 
-header { padding-top: 2.618em; height: 60%; background: #111111 url(../img/grass.jpg); color: #fff; -webkit-background-size: cover; background-size: cover; text-align: center; display: table; width: 100%; }
+header { padding-top: 2.618em; height: 60%; color: #fff; background-color: #111; text-align: center; display: table; width: 100%; }
 
 section, footer { max-width: 100%; max-width: 32.724em; margin: 0 auto; }
 
@@ -191,6 +191,8 @@ section.main p { margin-top: 0; }
 
 .elsewhere { padding: 1.618em 0; border-top: 1px solid #aaa; border-bottom: 1px solid #aaa; }
 
-.elsewhere a { display: inline-block; width: 50%; vertical-align: top; text-align: center; }
+.elsewhere a { display: block; width: 100%; text-align: center; }
 
 footer { padding: 0 2.618em; margin-top: 2.618em; margin-bottom: 2.618em; }
+
+/*# sourceMappingURL=4f3008aa-19de-48da-804c-1ca6b5f6331e.scss.map */

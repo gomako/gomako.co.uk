@@ -16,9 +16,8 @@ a:hover {
 header {
 	padding-top: $padding-lg;
 	height: 60%;
-	background: $near-black url(../img/grass.jpg);
 	color: #fff;
-	background-size: cover;
+	background-color: #111;
 	text-align: center;
 	display: table;
 	width: 100%;
@@ -43,9 +42,8 @@ section.main p {
 	border-bottom: 1px solid #aaa;
 }
 .elsewhere a {
-	display: inline-block;
-	width: 50%;
-	vertical-align:top;
+	display: block;
+	width: 100%;
 	text-align: center;
 }
 footer {
