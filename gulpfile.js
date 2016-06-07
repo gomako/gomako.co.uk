@@ -56,7 +56,7 @@ gulp.task('default', function(){
   gulp.run('pre-process', 'minify-css');
   server.listen(35729, function (err) {
     gulp.watch(['*.html', './sass/*.scss'], function(event) {
-      gulp.run('reload-html','pre-process', 'minify-css');
+      gulp.run('pre-process', 'minify-css','reload-html');
     });
   });
 });
