@@ -1,4 +1,17 @@
 
+var palette = [
+    '#100f0c',
+    '#6ac5b3',
+    '#d7c894',
+    '#e9f2ea',
+    '#1c4a40',
+    '#43231b',
+    '#7b9591',
+    '#e29a64',
+    '#985235',
+    '#69bfe1'
+];
+
 var w = window.innerWidth;
 var h = window.innerHeight;
 var c = document.getElementById('canvas');
@@ -27,13 +40,9 @@ var render = Render.create({
     	background: '#111',
     	width: w,
     	height: h,
-
     	wireframes: false,
-
-    	// hasBounds: true,
-    	// showCollisions: true,
-    	// showAngleIndicator: true,
-    	// showVelocity: true,
+     //    showCollisions: 1,
+     //    showAngleIndicator: 1,
     },
     engine: engine
 });
@@ -44,19 +53,7 @@ engine.world.bounds.max.x = w+10;
 engine.world.bounds.min.y = 0;
 engine.world.bounds.max.y = h+10;
 
-var wallOpts = { 
-	isStatic: true, 
-	render : { visible: false }
-}
-
-var walls = [
-	Bodies.rectangle( w*.5, h+9, w, 10, wallOpts),
-	Bodies.rectangle( -10, 0, 10, h*2, wallOpts),
-	Bodies.rectangle( w, 0, 10, h*2, wallOpts),
-];
-
-// add all of the bodies to the world
-World.add(engine.world, walls);
+setupWalls(w, h, true);
 
 // run the engine
 Engine.run(engine);
@@ -119,6 +116,27 @@ draw();
 
 // Other stuff
 
+var floor,
+    left,
+    right;
+
+function setupWalls(w, h, init) {
+    
+    var wallOpts = { 
+        isStatic: true, 
+        render : { visible: false }
+    }
+
+    floor = Bodies.rectangle( w*.5, h, w, 10, wallOpts);
+    left = Bodies.rectangle( 0, 0, 10, h*2, wallOpts);
+    right = Bodies.rectangle( w, 0, 10, h*2, wallOpts);
+
+    // add all of the bodies to the world
+    if(init) {
+        World.add(engine.world, [floor, left, right]);
+    }
+
+}
 
 function toggleDebug() {
 	render.options.wireframes = !render.options.wireframes;
@@ -126,10 +144,23 @@ function toggleDebug() {
 	render.options.showAngleIndicator = !render.options.showAngleIndicator;
 }
 
-window.addEventListener("resize", function(){
-    c.width = window.innerWidth;
-    c.height = window.innerHeight;
-});
+// window.addEventListener("resize", function(){
+    
+//     var w = window.innerWidth;
+//     var h = window.innerHeight;
+//     c.width = w;
+//     c.height = h;
+    
+//     engine.world.bounds.max.x = w;
+//     engine.world.bounds.max.y = h;
+
+//     setupWalls(w, h);
+
+//     // var floor = Bodies.rectangle( w*.5, h+9, w, 10, wallOpts);
+//     // var left = Bodies.rectangle( -10, 0, 10, h*2, wallOpts);
+//     // var right = Bodies.rectangle( w, 0, 10, h*2, wallOpts);
+
+// });
 
 
 function start() {
