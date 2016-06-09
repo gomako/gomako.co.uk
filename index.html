@@ -1,32 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <title>
-      Ben Harvey - Developer & designer for interaction.
-    </title>
-    <meta name="author" content="Ben Harvey">
-    <meta name="description" content="Front and back end web developer. I speak html, javascript, php and associated tools. ">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700|Open+Sans:700,400">
-    <link rel="stylesheet" href="css/i.min.css">
+    <meta charset="UTF-8">
+  	<meta name="viewport" content="width=device-width,initial-scale=1">
+  	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <title>GoMako - Ben Harvey. Design and development for interaction.</title>
+    <meta name="description" content="">  
+    <meta name="author" content="@gomako">  
+    <link href='https://fonts.googleapis.com/css?family=Karla:700' rel='stylesheet' type='text/css'>
+    <style>
+    	html {
+    		height: 100%;
+    		box-sizing: border-box;
+    	}
+    	*, *:before, *:after {
+    		box-sizing: inherit;
+    	}
+    	body {
+    		height: 100%;
+    		margin: 0; padding: 0; background: hotpink;
+    		overflow: hidden;
+        font-family: 'Karla', sans-serif;
+    	}
+    	#toggle {
+    		position: absolute;
+    		top: 20px;
+    		right: 20px;
+    	} 
+    	canvas {
+    		
+    	}
+      main {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+
+        align-items: center;
+      }
+    	h1 {
+        font-size: 2.618rem;
+    		z-index: 999;
+    		
+        color:hotpink;
+        text-shadow: 5px 5px #111;
+
+        width: 100%;
+        
+        display: flex;
+        justify-content: center;
+    	}
+      h1 span::selection {
+        background: yellow;
+      }
+      h1 span::-moz-selection {
+        background: yellow;
+      }
+      h1:hover > .title {
+        display: none;
+      }
+      h1 > .email {
+        display: none;
+      }
+      h1:hover > .email {
+        display: block;
+      }
+    </style>
   </head>
-  <body>
-    <header>
-      <div class="vertical">
-        <img class="icon" src="img/skully.svg" alt="logo">
-        <h1>Ben Harvey</h1>
-        <h2>Developer &amp; Designer</h2>
-      </div>
-    </header>
-    <section class="main">
-      Hello. I am a web and interaction developer, designer and creative coder.
-    </section>
-    <section class="elsewhere">
-      <a href="mailto:ben@gomako.co.uk">Talk to me</a>
-    </section>
-    <footer>
-      &copy; Ben Harvey
-    </footer>
+  <body onload="start()">
+  	<main>
+     <h1>
+      <span class="title">GoMako</span>
+      <span class="email">ben@gomako.co.uk</span>
+    </h1>
+    </main>
+  	<button id="toggle" onclick="toggleDebug()">Toggle Debug</button>
+  	<canvas id="canvas"></canvas>
   </body>
+  <script src="node_modules/matter-js/demo/js/lib/decomp.js"></script>
+  <script src="node_modules/matter-js/demo/js/lib/pathseg.js"></script>
+  <script src="node_modules/matter-js/build/matter.js"></script>
+  <script src="js/matter.js"></script>
+
 </html>
